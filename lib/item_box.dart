@@ -123,18 +123,14 @@ class ItemBox extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(pancake.name, style: const TextStyle(color: Colors.white, fontSize: 26),),
+                    Text(pancake.name, style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),),
                     const SizedBox(height: 5,),
                     PriceButton(text: pancake.price,),
                   ],
                 ),
               ),
               const Spacer(),
-              Container(
-                width: 20,
-                height: 20,
-                color: Colors.white,
-              )
+              CheckButton()
             ],
           ),
         );

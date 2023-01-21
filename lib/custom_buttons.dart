@@ -305,3 +305,64 @@ class PriceButton extends StatelessWidget {
   }
 }
 
+class CheckButton extends StatefulWidget {
+
+  const CheckButton({Key? key,
+}) : super(key: key);
+
+  @override
+  State<CheckButton> createState() => _CheckButtonState();
+}
+
+class _CheckButtonState extends State<CheckButton> {
+
+  bool isTapped = false;
+
+  void _isTapped() {
+    setState(() {
+      isTapped = !isTapped;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: _isTapped,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              gradient: isTapped ? LinearGradient(
+                  colors: [
+                    const Color(0xff05e236).withOpacity(1),
+                    const Color(0xff05e236).withOpacity(0.2),
+                  ],
+                  stops: const[
+                    0.1, 0.8
+                  ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight
+              ) : null,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              border: Border.all(color: Colors.white.withOpacity(0.7), width: 1.5),
+              boxShadow: [
+                BoxShadow(
+                  color: isTapped ? Colors.white.withOpacity(0.5) : Colors.transparent,
+                  spreadRadius: 0,
+                  blurRadius: 8,
+                  offset: const Offset(-2, -2)
+                )
+              ]
+            ),
+            child: Image.asset('assets/icons/check.png'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
