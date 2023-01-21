@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pancake/model.dart';
 
+import 'custom_buttons.dart';
+
 class ItemBox extends StatelessWidget {
   const ItemBox({
     Key? key,
@@ -28,21 +30,110 @@ class ItemBox extends StatelessWidget {
   }
 
   Widget buildPancakes(List<Pancakes> pancakes) => ListView.builder(
+      padding: const EdgeInsets.fromLTRB(1, 100, 1, 60),
       itemCount: pancakes.length,
       itemBuilder: (context, index) {
         final pancake = pancakes[index];
         return Container(
-          color: Colors.yellowAccent.withOpacity(0.1),
-          width: 120,
+          margin: const EdgeInsets.fromLTRB(0, 0, 20, 20),
+          padding: const EdgeInsets.only(left: 20),
+          color: Colors.yellowAccent.withOpacity(0.0),
           height: 120,
           child: Row(
             children: [
-              Image.asset('assets/images/${pancake.image}.png'),
-              Column(
+              Stack(
+                alignment: Alignment.center,
                 children: [
-                  Text(pancake.name),
-                  Text(pancake.price),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          colors: [
+                            const Color(0xff2376b9).withOpacity(0.9),
+                            const Color(0xff2376b9).withOpacity(0.1),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 117,
+                    height: 117,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          colors: [
+                            const Color(0xff071423).withOpacity(0.8),
+                            const Color(0xff071423).withOpacity(0.4),
+                          ],
+                          begin: Alignment.bottomRight,
+                          end: Alignment.topLeft
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 103,
+                    height: 103,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          colors: [
+                            const Color(0xff2376b9).withOpacity(0.6),
+                            const Color(0xff2376b9).withOpacity(0.0),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight
+                      ),
+                    ),
+                  ),
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    width: 100,
+                      height: 100,
+                      child: Image.asset('assets/images/${pancake.image}.png',fit: BoxFit.fill,)),
+                  Positioned(
+                    top: 10,
+                    left: 5,
+                    child: Container(
+                      width: 5,
+                      height: 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0xff5893e4),
+                              spreadRadius: 12,
+                              blurRadius: 38,
+                            )
+                          ]
+                      ),
+                    ),
+                  )
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(pancake.name, style: const TextStyle(color: Colors.white, fontSize: 26),),
+                    const SizedBox(height: 5,),
+                    PriceButton(text: pancake.price,),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              Container(
+                width: 20,
+                height: 20,
+                color: Colors.white,
               )
             ],
           ),

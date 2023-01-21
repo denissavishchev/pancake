@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.65,
-                  child: ItemBox()),
+                  child: const ItemBox()),
             ),
-            MainBox(),
+            const MainBox(),
             Positioned(
                 bottom: 0,
                 child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     color: Colors.orange.withOpacity(0.1)
                 )),
           ],
