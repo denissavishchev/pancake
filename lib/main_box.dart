@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pancake/custom_buttons.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class MainBox extends StatelessWidget {
   const MainBox({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class MainBox extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(80)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withOpacity(0.4),
                     spreadRadius: 5,
                     blurRadius: 120,
                   )
@@ -63,33 +65,50 @@ class MainBox extends StatelessWidget {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 60, 20, 40),
+              padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.ac_unit, color: Colors.white,),
-                      Text('Panckaes', style: TextStyle(
-                          color: Colors.white,
-                        fontFamily: 'Redressed',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22
-                      ),),
-                      Icon(Icons.access_alarm, color: Colors.white,)
+                      const TopButton(width: 69, icon: 'arrow',),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(40)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white.withOpacity(0.08),
+                              blurRadius: 10,
+                              spreadRadius: 1,
+                              offset: const Offset(0, 5),
+                            )
+                          ]
+                        ),
+                        child: GradientText('Pancakes', style: const TextStyle(
+                          fontFamily: 'Redressed',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 52
+                        ), colors: const [
+                          Colors.white,
+                          Color(0xff132c43),
+                        ],
+                          gradientType: GradientType.linear,
+                          gradientDirection: GradientDirection.ttb,
+                        ),
+                      ),
+                      const TopButton(width: 39, icon: 'dots')
                     ],
                   ),Column(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
-                          child: Icon(Icons.ac_unit, color: Colors.white,)),
-                      SizedBox(height: 20,),
+                          child: StatisticButton(icon: 'star', text: '4.9',)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(Icons.ac_unit, color: Colors.white,),
-                          Icon(Icons.ac_unit, color: Colors.white,),
+                        children: const [
+                          StatisticButton(icon: 'chat', text: '80',),
+                          MapButton(),
                         ],
                       ),
                     ],

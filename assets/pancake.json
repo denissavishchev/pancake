@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Berry Pancake",
+    "image": "1",
+    "price": "7"
+  },
+  {
+    "name": "Tower Pancake",
+    "image": "2",
+    "price": "9"
+  },
+  {
+    "name": "Muffin",
+    "image": "3",
+    "price": "5"
+  },
+  {
+    "name": "Kiwi and Maple",
+    "image": "4",
+    "price": "8"
+  },
+  {
+    "name": "Biscuits",
+    "image": "5",
+    "price": "4"
+  }
+]
