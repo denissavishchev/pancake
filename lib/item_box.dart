@@ -130,7 +130,7 @@ class ItemBox extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              CheckButton()
+              const CheckButton()
             ],
           ),
         );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'bottom_bar_box.dart';
 import 'item_box.dart';
 import 'main_box.dart';
 
@@ -24,11 +24,8 @@ class HomePage extends StatelessWidget {
             const MainBox(),
             Positioned(
                 bottom: 0,
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    color: Colors.orange.withOpacity(0.1)
-                )),
+                child: BottomBarBox()
+            ),
           ],
         ),
       )
